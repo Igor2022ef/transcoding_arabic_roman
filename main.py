@@ -3,14 +3,18 @@
 '''
 # num - Исходное число
 
-def rom(num):
+def rom(num: int):
     res = list(map(int, str(num)))
-    print(res)
+    print(res, len(res))
     if len(res) < 2:
-        num = Num_first(res[0])
+        num_1 = Num_first(res[0]).dig()
+    else:
+        num_1 = ''
     if len(res) >= 2:
-        num = Num_second(res[0],res[1])
-    print(f'num = {num.dig()}')
+        num_2 = Num_second(res[0], res[1]).dig_second()
+    else:
+        num_2 = ''
+    print(f'num = {num_1+num_2}')
 
 #Число, соответствующее арабскому 0 - 9, первый разряд
 
@@ -40,25 +44,24 @@ class Num_first():
 
 class Num_second(Num_first):
     def __init__(self, num_min, num_mid):
-        super().__init__(self, num_min)
+        super().__init__(num_min)
         self.num_mid = num_mid
-    def dig(self):
+        print(f'Это второе число - {num_mid}')
+    def dig_second(self):
         nessery_n = ""
         if 1 <= self.num_mid <= 3:
-                nessery_n += num_min * 'I'
-                return nessery_n
+                nessery_n += self.num_min * 'I'
         if self.num_mid == 4:
                 nessery_n += 'IV'
-                return nessery_n
         if self.num_mid == 5:
                 nessery_n += 'V'
-                return nessery_n
         if 5 < self.num_mid <= 8:
-                nessery_n += 'V'+(num_mid - 5)*'I'
-                return nessery_n
+                nessery_n += 'V'+(self.num_mid - 5)*'I'
         if self.num_mid == 9:
                 nessery_n += "IX"
-                return nessery_n
+        return self.dig()+nessery_n
+
+
 #        res[1] = nessery_n
 #        print(*res, sep='')
 
