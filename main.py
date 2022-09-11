@@ -21,7 +21,7 @@ def rom(num: int):
 class Num_first():
     def __init__(self, num_min):
         self.num_min = num_min
-        print(f'Это первое число - {num_min}')
+        print(f'Это первое число - {self.num_min}')
     def dig(self):
         nessery_n = ''
         if 1 <= self.num_min <= 3:
@@ -33,7 +33,7 @@ class Num_first():
         if self.num_min == 5:
             nessery_n += 'V'
             return nessery_n
-        if 5 < self.num_min <= 8:
+        if ma:
             nessery_n += 'V' + (self.num_min - 5) * 'I'
             return nessery_n
         if self.num_min == 9:
@@ -69,4 +69,4 @@ class Num_second(Num_first):
 
 
 if __name__ == "__main__":
-    rom(18)
+    rom(19)
