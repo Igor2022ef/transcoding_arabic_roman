@@ -12,7 +12,7 @@ def rom(num: int):
         num = Num_first(res[0])
         rim.append(num.dig())
     elif len(res) >= 2 or len(res) <= 3:
-        num = Num_second(res[1],res[0])
+        num = Num_second(res[1],res[0])     #не понимаю, почему прядое res[1],res[0] важен
         rim.append(num.dig2())
         rim.append(num.dig())
     print(f'Это результат со всеми разрядами: {"".join(rim)}')
