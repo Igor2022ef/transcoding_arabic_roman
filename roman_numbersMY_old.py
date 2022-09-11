@@ -11,14 +11,10 @@ def rom(num: int):
     if len(res) < 2:
         num = Num_first(res[0])
         rim.append(num.dig())
-#        print(f'Это результат: {rim}')
-#        print(f'num = {num.dig()}')
-   
     elif len(res) >= 2 or len(res) <= 3:
         num = Num_second(res[1],res[0])
         rim.append(num.dig2())
         rim.append(num.dig())
-#       print(f'num2 = {num.dig2()}')
     print(f'Это результат со всеми разрядами: {"".join(rim)}')
 class Num_first():
 #    Число, соответствующее арабскому 0 - 9, первый разряд
@@ -43,7 +39,6 @@ class Num_first():
         if self.num_min == 9:
             nessery_n += "IX"
             return nessery_n
-            #rim.append(nessery_n) 
 
 class Num_second(Num_first):
 #       Число, соответствующее арабскому 10 - 99, второй разряд
@@ -54,10 +49,6 @@ class Num_second(Num_first):
         self.num_mid = num_mid
         print(f'num_mid = {self.num_mid}')
         print(f'Это min из Num_second т.е num_min = {self.num_min}')
-#Важно - в этом месте имеем 2 переменные num_min, num_mid обработанные 
-#двумя классами соответственно. Надо выводить обе
-
-
     def dig2(self):
         #if self.num_min == 0:
             #dig() == 0
@@ -65,19 +56,15 @@ class Num_second(Num_first):
         if self.num_mid < 4:
             nessery_m = "X" * self.num_mid
             return nessery_m
-
         if self.num_mid == 4:
             nessery_m = "XL"
             return nessery_m
-            #print(*res, sep='')
         if self.num_mid == 5:
             nessery_m = "L"
             return nessery_m
-            #print(*res, sep='')
         if self.num_mid == 6:
             nessery_m = "LX"
             return nessery_m
-            #print(*res, sep='')
         if self.num_mid == 7:
             nessery_m = "LXX"
             return nessery_m
@@ -85,13 +72,9 @@ class Num_second(Num_first):
         if self.num_mid == 8:
             nessery_m = "LXXX"
             return nessery_m
-            #print(*res, sep='')
         if self.num_mid == 9:
             nessery_m = "XC"
             return nessery_m
-            #print(*res, sep='')
-
-
 
 #Видимо надо сразу разворачивать число в список и рассылать уже проанализированные
 #числа
@@ -127,7 +110,7 @@ def rom(num):
 
 '''
 
-rom(86)
+rom(16)
 
 #print(nessery_n)
 #dig = Num_first(6)
