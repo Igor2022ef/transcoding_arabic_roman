@@ -59,7 +59,7 @@ class Num_second(Num_first):
                 nessery_n += 'V'+(self.num_mid - 5)*'I'
         if self.num_mid == 9:
                 nessery_n += "IX"
-        return self.dig()+nessery_n
+        return self.dig()+nessery_n                       #Что означает self.dig()
 
 
 #        res[1] = nessery_n
