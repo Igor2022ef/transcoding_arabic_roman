@@ -1,6 +1,7 @@
 '''
 Перевод числа, написанного арабскими цифрами в риские.
 num - Исходное число
+Пока реализовано до 499, далее конфликт
 '''
 
 def rom(num: int):
@@ -14,16 +15,24 @@ def rom(num: int):
     print(f'Это длина res: {len(res)}')
     if len(res) < 2:
         num = Num_first(res[0])
-        rim.append(num.dig())
     if 2 <= len(res) < 3:
         num = Num_second(res[1],res[0])
         dig2_sum = num.dig2()
-    if 3 <= len(res) and num < 400:          #После введения 3-го разряда, 1-ый стал "вызыван до определения" - решай
-        num = Num_second(res[1], res[0])
+        rim.append(dig2_sum)
+    if 3 <= len(res) and num < 400:
+        num = Num_second(res[2], res[1])
+        #Строка ниже добавляет третий разряд
         dig2_sum = res[0]*'C' + num.dig2()
+
+#    if 400 <= num < 500:                        #Для выполнения этого условия надо решить с конфликтом
+#        dig2_sum = 'CD' + num.dig2()
+
         print(f'Это третий разряд: {dig2_sum}')
-    rim.append(dig2_sum)
-    rim.append(num.dig())  #как поставить условие - если num.dig() == None, то не заносить его в rim (обработка 0 в разряде)?
+        rim.append(dig2_sum)
+    print(rim)
+    if num.dig() != None:
+        rim.append(num.dig())
+        print(rim)
     print(f'Это результат со всеми разрядами: {"".join(rim)}')
 
 class Num_first():
@@ -74,4 +83,4 @@ class Num_second(Num_first):
             return nessery_m
 
 if __name__ == "__main__":
-    rom(9)
+    rom(401)
