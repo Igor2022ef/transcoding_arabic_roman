@@ -5,7 +5,8 @@ def gen_f(a,b):
     while c < 11:
         b, a = a, a+b #Как же это работает?
         c = c + 1
-        ans.append(a) #Как убрать первую единицу в списке?
+        ans.append(a)
+    del ans[0]
     return (ans)
 
 def gen_f_1(a_1,b_1):
@@ -30,6 +31,10 @@ def gen_f_2(a_2,b_2):
         b_2 = c_2
         m = m + 1
     return (ans_2)
+
+
+num = [_*2+1 for _ in range(5)]
+print(num)                             #Почему интерпретатор выводит этот генератор первым из 4 прог?
 
 
 
