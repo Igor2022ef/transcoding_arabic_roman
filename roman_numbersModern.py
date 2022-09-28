@@ -1,19 +1,10 @@
 '''
 Перевод числа, написанного арабскими цифрами в риские.
 num - Исходное число
-Пока реализовано до 399, далее конфликт
 '''
 
-
 def rom(num: int):
-    num = int(num)
     assert isinstance(num, int), 'Это значение не конвертируемо'
-    # if not isinstance(num, int) is True or num == 0:
-    #     raise ValueError(
-    #         'Это значение не конвертируемо')  # Верно ли сделал остановку при ошибке, что делать с числом 01?
-    assert 0 < num < 1000, 'M - и все на этом'
-    # if num >= 1000:
-    #     raise SystemExit('M - и все на этом')  # Последнее число, не знаю, как верно оформить этот шаг
     res = list(map(int, str(num)))
     rim = []
     match len(res):
@@ -41,32 +32,9 @@ def rom(num: int):
             rim.append(dig2_sum)
         case _:
             raise ValueError('M - и все на этом')
-    # if len(res) < 2:
-    #     num = Num_first(res[0])
-    # elif 2 <= len(res) < 3:
-    #     num = Num_second(res[1], res[0])
-    #     dig2_sum = num.dig2()
-    #     rim.append(dig2_sum)
-    # elif 3 <= len(res) < 4:
-    #     num = Num_second(res[2], res[1])
-    #     if res[0] < 4:
-    #         first_n = res[0] * 'C'
-    #     elif 4 <= res[0] < 5:
-    #         first_n = 'CD'
-    #     if 5 <= res[0] < 6:
-    #         first_n = 'D'
-    #     if 6 <= res[0] < 9:
-    #         first_n = ('D' + 'C' * (res[0] - 5))
-    #     if 9 <= res[0]:
-    #         first_n = 'CM'
-    #     if num.dig() != None:
-    #         dig2_sum = first_n + num.dig2() + num.dig()
-    #     dig2_sum = first_n + num.dig2()
-    #     rim.append(dig2_sum)
     if num.dig() != None:
         rim.append(num.dig())
     print(f'Это результат со всеми разрядами: {"".join(rim)}')
-
 
 class Num_first():
     #    Число, соответствующее арабскому 0 - 9, первый разряд
@@ -92,7 +60,6 @@ class Num_first():
             nessery_n += "IX"
             return nessery_n
 
-
 class Num_second(Num_first):
     #       Число, соответствующее арабскому 10 - 999, старшие разряды
 
@@ -115,6 +82,5 @@ class Num_second(Num_first):
             nessery_m = "XC"
             return nessery_m
 
-
 if __name__ == "__main__":
-    rom(100)
+    rom(800)
